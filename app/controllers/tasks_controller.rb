@@ -28,6 +28,12 @@ class TasksController < ApplicationController
 
     redirect_to tasks_path
   end
+  def mark_complete
+    task = Task.find(params[:format])
+    task.completed ? task.update({completed: false}): task.update({completed: true})
+
+    redirect_to task_path(task)
+  end
 
   private
 

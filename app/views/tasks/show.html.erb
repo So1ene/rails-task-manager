@@ -1,7 +1,6 @@
-<h1>Created task:</h1>
-<p><strong>TITLE:</strong><br /><%= @task[:title] %></p>
-<p><strong>DETAILS:</strong><br /><%= @task[:details] %></p>
-<p><strong>COMPLETED:</strong><br /><%= @task[:completed] %></p>
+<h1><%= @task[:title] %></h1>
+<p><%= @task[:details] %></p>
+<p><strong>COMPLETED: </strong><%= @task[:completed] %></p>
 
 
 <%= link_to 'Back to task list', tasks_path %>
@@ -9,3 +8,5 @@
 <%= link_to 'Edit', edit_task_path(@task) %>
 <br />
 <%= link_to 'Delete', destroy_task_path(@task), method: :delete %>
+<br />
+<%= link_to 'Mark as completed', mark_complete_path(@task), method: :patch %>

@@ -1,7 +1,4 @@
 class TasksController < ApplicationController
-  def task_params
-    params.require(:task).permit(:title, :details)
-  end
   def new
     @task = Task.new
   end
@@ -30,5 +27,11 @@ class TasksController < ApplicationController
     task.destroy
 
     redirect_to tasks_path
+  end
+
+  private
+
+  def task_params
+    params.require(:task).permit(:title, :details)
   end
 end
